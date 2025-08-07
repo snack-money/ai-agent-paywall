@@ -1,0 +1,7 @@
+User-agent: *
+Disallow:
+
+# Custom directive for AI agents
+Payment-Required: true
+Payment-Endpoint: https://api.snack.money/payments/pay
+Payment-Amount: 0.01
