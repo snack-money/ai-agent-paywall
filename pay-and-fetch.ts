@@ -100,11 +100,20 @@ async function main() {
 
         console.log("[!] Sending payment...");
         const res = await apiPayment.post(endpointPath, paymentData);
-        console.log("[✓] x-payment-response:", res.headers["x-payment-response"]);
-        const paymentResponse = decodeXPaymentResponse(res.headers["x-payment-response"]);
-        console.log("[✓] Payment completed:", paymentResponse);
+        const xToken = res.headers["x-token"];
+        if (!xToken) {
+            throw new Error("x-token missing in response headers");
+        }
+        console.log("[✓] x-token:", xToken);
+        // const xTokenDecoded = decodeXPaymentResponse(xToken);
+        // console.log("[✓] x-token decoded:", xTokenDecoded);
 
-        const content = await apiBase.get("/index.html", { headers: HEADERS });
+        const content = await apiBase.get("/index.html", {
+            headers: {
+                ...HEADERS,
+                "x-token": xToken
+            }
+        });
         console.log("[✓] Content:\n", content.data);
     } catch (error) {
         console.error("Error:", (error as Error).message);
