@@ -111,7 +111,7 @@ async function main() {
         const content = await apiBase.get("/index.html", {
             headers: {
                 ...HEADERS,
-                "x-token": xToken
+                "X-TOKEN": xToken
             }
         });
         console.log("[✓] Content:\n", content.data);
