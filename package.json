@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "start:bot": "tsx pay-and-fetch.ts"
+    "start:bot": "tsx ai-agent-with-wallet.ts"
   },
   "devDependencies": {
     "@eslint/js": "^9.24.0",
