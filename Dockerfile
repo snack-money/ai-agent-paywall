@@ -4,6 +4,7 @@ FROM nginx:latest
 COPY nginx.conf /etc/nginx/nginx.conf
 
 # Copy static content
+COPY balaji.html /usr/share/nginx/html/balaji.html
 COPY index.html /usr/share/nginx/html/index.html
 
 # Copy static content

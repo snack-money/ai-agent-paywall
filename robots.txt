@@ -5,3 +5,5 @@ Disallow:
 Payment-Required: true
 Payment-Endpoint: https://api.snack.money/payments/pay
 Payment-Amount: 0.01
+Payment-Username: 0xmesuthere
+Payment-Identity: twitter

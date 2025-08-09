@@ -25,7 +25,7 @@ if (
 
 
 const args = minimist(process.argv.slice(2));
-const baseURL = args.url || "http://localhost:8080";
+const baseURL = args.url || "https://paywall.fly.dev";
 
 const BOT_NAME = "ai-agent-with-wallet-v1";
 const HEADERS = {
@@ -76,13 +76,15 @@ async function main() {
             throw new Error("Payment-Amount in robots.txt is not a valid number");
         }
 
+        const username = config["Payment-Username"];
+        const identity = config["Payment-Identity"];
         const paymentData = {
             amount,
             currency: "USDC",
             type: "social-network",
             sender_username: BOT_NAME,
-            receiver_username: "snack.money",
-            receiver_identity: "domain",
+            receiver_username: username,
+            receiver_identity: identity,
         };
 
         console.log("Passing privateKey to privateKeyToAccount:", privateKey);
@@ -101,6 +103,7 @@ async function main() {
         console.log("[!] Sending payment...");
         const res = await apiPayment.post(endpointPath, paymentData);
         const xToken = res.headers["x-token"];
+        // const xToken = "eyJhbGciOiJIUzI1NiJ9.eyJzZW5kZXJfdXNlcm5hbWUiOiJhaS1hZ2VudC13aXRoLXdhbGxldC12MSIsInJlY2VpdmVyX3VzZXJuYW1lIjoic25hY2subW9uZXkiLCJhbW91bnQiOjAuMDIsImN1cnJlbmN5IjoiVVNEQyIsInRpbWVzdGFtcCI6MTc1NDY5MDA5NjE3MiwiZGF0YSI6IjB4OTJiMzI1NGZkOTk0NDc3N2QyZjUxN2ViNTg1NDhiZTMwZDBjMTRkODdlNDZjMjkxMjQ4MWJhMmQ2MWJhZDcyMiIsImlhdCI6MTc1NDY5MDA5NiwiZXhwIjoxNzU0Njk3Mjk2fQ.sroZ8GtxK9H8apvfl4INeW-Woyn0xmko77k8NRVWq7U"; //res.headers["x-token"];
         if (!xToken) {
             throw new Error("x-token missing in response headers");
         }
