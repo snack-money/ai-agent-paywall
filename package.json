@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "start:bot": "tsx ai-agent-with-wallet.ts"
+    "start:ai-agent-with-wallet": "tsx ai-agent-with-wallet.ts",
+    "start:bot": "tsx bot.ts"
   },
   "devDependencies": {
     "@eslint/js": "^9.24.0",
