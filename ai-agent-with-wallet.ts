@@ -103,7 +103,6 @@ async function main() {
         console.log("[!] Sending payment...");
         const res = await apiPayment.post(endpointPath, paymentData);
         const xToken = res.headers["x-token"];
-        // const xToken = "eyJhbGciOiJIUzI1NiJ9.eyJzZW5kZXJfdXNlcm5hbWUiOiJhaS1hZ2VudC13aXRoLXdhbGxldC12MSIsInJlY2VpdmVyX3VzZXJuYW1lIjoic25hY2subW9uZXkiLCJhbW91bnQiOjAuMDIsImN1cnJlbmN5IjoiVVNEQyIsInRpbWVzdGFtcCI6MTc1NDY5MDA5NjE3MiwiZGF0YSI6IjB4OTJiMzI1NGZkOTk0NDc3N2QyZjUxN2ViNTg1NDhiZTMwZDBjMTRkODdlNDZjMjkxMjQ4MWJhMmQ2MWJhZDcyMiIsImlhdCI6MTc1NDY5MDA5NiwiZXhwIjoxNzU0Njk3Mjk2fQ.sroZ8GtxK9H8apvfl4INeW-Woyn0xmko77k8NRVWq7U"; //res.headers["x-token"];
         if (!xToken) {
             throw new Error("x-token missing in response headers");
         }
