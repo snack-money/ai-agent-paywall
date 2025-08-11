@@ -9,8 +9,6 @@ config();
 
 const privateKeyRaw = process.env.PRIVATE_KEY;
 const privateKey = (privateKeyRaw?.trim() ?? "") as Hex;
-console.log(`[DEBUG] Loaded PRIVATE_KEY: '${privateKey}'`);
-console.log("privateKey type:", typeof privateKey);
 if (
     !privateKey ||
     typeof privateKey !== "string" ||
