@@ -1,9 +1,10 @@
 User-agent: *
 Disallow:
 
-# Custom directive for AI agents
+# Custom directive for AI agents with Wallet on Base
 Payment-Required: true
 Payment-Endpoint: https://api.snack.money/payments/pay
+Payment-Currency: USDC
 Payment-Amount: 0.01
 Payment-Username: balajis
 Payment-Identity: twitter
