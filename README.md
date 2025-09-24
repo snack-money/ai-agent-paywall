@@ -1,6 +1,6 @@
 # snackmoney-paywall-bot
 
-A TypeScript bot that interacts with a paywalled site using [snack.money](https://snack.money) payment endpoints.  
+A TypeScript bot that interacts with a paywalled site using x402 enabled [Snack Money API](https://api.snack.money/docs) payment endpoints.  
 It reads payment requirements from `robots.txt`, sends payment if required, and fetches protected content.
 
 ## Features
